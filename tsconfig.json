@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "listFiles": true,
+    "module": "NodeNext",
+    "target": "ES2022",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "lib": ["ES2021"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "noImplicitAny": false,
+    "declaration": true,
+    "declarationDir": "dist",
+    "declarationMap": true
+  },
+  "include": [
+    "src",
+    "test",
+    "lib.es5.d.ts"
+  ]
+}
