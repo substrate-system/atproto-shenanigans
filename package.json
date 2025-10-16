@@ -1,8 +1,28 @@
 {
+  "name": "@substrate-system/at",
+  "version": "0.0.0",
   "type": "module",
+  "bin": {
+    "at": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "mkdir -p ./dist && rm -rf ./dist/* && npm run build-esm",
+    "build-esm": "esbuild src/*.ts --format=esm --metafile=dist/meta.json --keep-names --tsconfig=tsconfig.build.json --outdir=./dist --sourcemap && tsc --emitDeclarationOnly --project tsconfig.build.json --outDir dist",
+    "lint": "eslint \"./**/*.{ts,js}\"",
+    "toc": "markdown-toc --maxdepth 3 -i README.md",
+    "start": "node dist/cli.js",
+    "preversion": "npm run lint",
+    "version": "npm run toc && auto-changelog -p --template keepachangelog --breaking-pattern 'BREAKING CHANGE:' && git add CHANGELOG.md README.md",
+    "postversion": "git push --follow-tags && npm publish"
+
+  },
   "dependencies": {
     "@atproto/api": "^0.17.3",
-    "dotenv": "^17.2.3"
+    "@inquirer/prompts": "^7.9.0",
+    "@types/yargs": "^17.0.33",
+    "chalk": "^5.6.2",
+    "dotenv": "^17.2.3",
+    "yargs": "^18.0.0"
   },
   "devDependencies": {
     "@substrate-system/debug": "^0.9.26",
