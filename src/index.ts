@@ -19,18 +19,18 @@ const emailCode = process.env.PLC_CODE!
 // Put handle URI and GitHub URL in the list
 const alsoKnownAs = [
   `at://${IDENTIFIER}`,
-  `https://github.com/nichoth`
+  'https://github.com/nichoth'
 ]
 
 // sign the operation (the SDK handles the exact payload shape)
 const signed = await agent.com.atproto.identity.signPlcOperation({
-  token: emailCode,
-  alsoKnownAs
+    token: emailCode,
+    alsoKnownAs
 })
 
 // 4) submit it to the PLC directory
 await agent.com.atproto.identity.submitPlcOperation({
-  operation: signed.data.operation
+    operation: signed.data.operation
 })
 
-console.log('Updated DID alsoKnownAs!')
+console.log('Updated DID `alsoKnownAs`')
