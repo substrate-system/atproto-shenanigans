@@ -1,10 +1,16 @@
 {
   "name": "@substrate-system/at",
   "version": "0.0.0",
+  "description": "At protocol CLI",
   "type": "module",
+  "main": "dist/cli.js",
+  "types": "./dist/cli.d.ts",
   "bin": {
-    "at": "./dist/cli.js"
+    "at": "dist/cli.js"
   },
+  "files": [
+    "./dist/*"
+  ],
   "scripts": {
     "build": "mkdir -p ./dist && rm -rf ./dist/* && npm run build-esm",
     "build-esm": "esbuild src/*.ts --format=esm --metafile=dist/meta.json --keep-names --tsconfig=tsconfig.build.json --outdir=./dist --sourcemap && tsc --emitDeclarationOnly --project tsconfig.build.json --outDir dist",
@@ -14,7 +20,6 @@
     "preversion": "npm run lint",
     "version": "npm run toc && auto-changelog -p --template keepachangelog --breaking-pattern 'BREAKING CHANGE:' && git add CHANGELOG.md README.md",
     "postversion": "git push --follow-tags && npm publish"
-
   },
   "dependencies": {
     "@atproto/api": "^0.17.3",
@@ -37,5 +42,23 @@
     "markdown-toc": "^1.2.0",
     "tap-spec": "^5.0.0",
     "typescript": "^5.9.3"
-  }
+  },
+  "keywords": [
+    "at",
+    "protocol",
+    "cli",
+    "bluesky",
+    "typescript",
+    "node"
+  ],
+  "homepage": "https://github.com/substrate-system/atproto-shenanigans",
+  "bugs": {
+    "url": "https://github.com/substrate-system/atproto-shenanigans/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/substrate-system/atproto-shenanigans.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "nichoth <nichoth@nichoth.com> (https://nichoth.com)"
 }
