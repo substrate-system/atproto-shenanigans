@@ -33,4 +33,4 @@ await agent.com.atproto.identity.submitPlcOperation({
   operation: signed.data.operation
 })
 
-console.log('Updated DID alsoKnownAs!')
+console.log('Updated DID `alsoKnownAs`')
