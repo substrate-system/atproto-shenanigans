@@ -29,12 +29,11 @@ npm i @substrate-system/at
 
 Add a URL to your DID's `alsoKnownAs` property.
 
-The `aka` command lets you link external URLs to your Bluesky DID document.
-This is useful for connecting your Bluesky identity to other online profiles
-like GitHub or any other website.
+The `aka` command lets you link external URLs, like Github,
+to your Bluesky DID document.
 
 If you did not install this glabally via `npm i -g @substrate-system/at`,
-then use `npx` to execute the program.
+then use `npx` to execute it.
 
 ```bash
 npx at aka <handle> <URL> [--pds <custom-pds>]
@@ -82,8 +81,8 @@ at aka alice.example.com https://alice.com --pds https://pds.example.com
 ## How it works
 
 The AT Protocol uses [DID (Decentralized Identifier)](https://atproto.com/specs/did)
-documents to represent user identities. Each DID document can include an
+documents as user identity. Each DID can include an
 `alsoKnownAs` field that links to other identifiers or URLs.
 
-This uses the [@atproto/api](https://www.npmjs.com/package/@atproto/api)
-client.
+This uses the
+[@atproto/api](https://www.npmjs.com/package/@atproto/api) client.
